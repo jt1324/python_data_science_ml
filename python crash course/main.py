@@ -152,3 +152,60 @@ output = square(2)
 print(output)
 
 
+
+# Part 4 - lambda | map | filter | lower | upper | slip | pop | unpacking
+
+
+def times2(var):
+    return var*2
+
+print(times2(5))
+
+seq = [1,2,3,4,5]
+
+print(list(map(times2, seq)))
+
+t = lambda var:var*2
+print(t(6))
+
+print(list(map(lambda num: num*3,seq)))
+
+
+print(list(filter(lambda num: num%2 == 0, seq)))
+
+s = 'hello my name is Sam'
+t = 'Go Sports! #Sports'
+print(s.lower())
+print(s.upper())
+print(s.split())
+print(t.split('#'))
+
+d = {'k1': 1, 'k2': 2}
+print(d)
+print(d.keys())             # dict_keys(['k1', 'k2'])
+print(d.items())            # dict_items([('k1', 1), ('k2', 2)])
+print(d.values())           # dict_values([1, 2])
+
+lst = [1,2,3]
+print(lst.pop())            # 3 - brings the last item - remove the item from the list
+print(lst)                  # [1, 2]
+first = lst.pop(0)          # 1
+print(first)
+
+lst.append('new')
+print(lst)
+
+
+print('x' in [1,2,3])
+print('x' in ['x','y','z'])
+
+x = [(1,2),(3,4),(5,6)]
+
+for item in x:
+    print(item)
+
+for a,b in x:
+    print(a)
+    print(b)
+
+
