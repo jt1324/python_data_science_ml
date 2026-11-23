@@ -38,6 +38,7 @@ print(n_nest[3][2][0])  # target
 
 
 
+
 # Part 2 - Dictionaries | truples | sets | booleans | comparision operators
 
 d = {'key1':'value', 'key2':123}
@@ -97,5 +98,57 @@ elif 3 == 3 :
 else :
     print('last')
 
+
+
+
+# Part 3 - loops | functions
+
+seq = [1,2,3,4,5]
+
+for i in seq:
+    print(i)
+
+i = 1
+
+while i < 5:
+    print(f"i is: {i}")
+    i += 1
+
+for x in range(0,5):
+    print(x)
+
+z = [1,2,3,4]
+out = []
+for num in z:
+    out.append(num**2)
+
+print(out)
+
+out = [num**2 for num in z]
+print(out)
+
+
+def my_func(param1):
+    print(param1)
+
+my_func('hello')
+
+
+def my_func(name):
+    print('Hello '+name)
+
+my_func('Jose')
+
+
+def square(num):
+    """
+    for long comments in 
+    multiple 
+    lines
+    """
+    return num**2
+
+output = square(2)
+print(output)
 
 
