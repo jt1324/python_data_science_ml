@@ -109,3 +109,25 @@ print(arr[arr>5])                       # [ 6  7  8  9 10] - same result - condi
 print(arr[arr<3])                       # [1 2]
 
 
+
+# NumPy - Operations
+# Array with Array | Array with Scalars | Universal Array Functions
+
+arr = np.arange(0,11)
+
+arr2 = arr + arr
+print(arr2)                             # [ 0  2  4  6  8 10 12 14 16 18 20]
+
+arr2 = arr - arr
+arr2 = arr * arr
+
+arr3 = arr + 100
+print(arr3)                             # [100 101 102 103 104 105 106 107 108 109 110]
+
+arr3 = arr - 100
+arr3 = arr / 100
+
+print(np.sqrt(arr))                     # square root
+print(np.exp(arr))                      # exponential
+print(np.max(arr))                      # Maximum
+
