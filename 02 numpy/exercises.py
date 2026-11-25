@@ -1,43 +1,43 @@
 # Import NumPy as np
-
+import numpy as np
 
 
 # Create an array of 10 zeros
-
+print(np.zeros(10))
 
 
 # Create an array of 10 ones
-
+print(np.ones(10))
 
 
 # Create an array of 10 fives
-
+print(np.ones(10)+4)
 
 
 # Create an array of the integers from 10 to 50
-
-
+ar = np.arange(10,51)
+print(ar)
 
 
 # Create an array of all the even integers from 10 to 50
-
+ar2 = np.arange(10,51,2)
+print(ar2)
 
 
 # Create a 3x3 matrix with values ranging from 0 to 8
-
+print(np.arange(0,9).reshape(3,3))
 
 
 # Create a 3x3 identity matrix
-
+print(np.eye(3))
 
 
 # Use NumPy to generate a random number between 0 and 1
-
+print(np.random.rand(1))
 
 
 # Use NumPy to generate an array of 25 random numbers sampled from a standard normal distribution
-
-
+print(np.random.rand(25))
 
 
 # Create the following matrix:
@@ -51,8 +51,8 @@
 #        [ 0.71,  0.72,  0.73,  0.74,  0.75,  0.76,  0.77,  0.78,  0.79,  0.8 ],
 #        [ 0.81,  0.82,  0.83,  0.84,  0.85,  0.86,  0.87,  0.88,  0.89,  0.9 ],
 #        [ 0.91,  0.92,  0.93,  0.94,  0.95,  0.96,  0.97,  0.98,  0.99,  1.  ]])
-
-
+ar3 = (np.arange(1,101)/100).reshape(10,10)
+print(ar3)
 
 
 # Create an array of 20 linearly spaced points between 0 and 1:
@@ -60,7 +60,7 @@
 #         0.26315789,  0.31578947,  0.36842105,  0.42105263,  0.47368421,
 #         0.52631579,  0.57894737,  0.63157895,  0.68421053,  0.73684211,
 #         0.78947368,  0.84210526,  0.89473684,  0.94736842,  1.        ])
-
+print(np.linspace(0, 1, 20))
 
 
 # Numpy Indexing and Selection
@@ -72,21 +72,46 @@ print(mat)
 # array([[12, 13, 14, 15],
 #        [17, 18, 19, 20],
 #        [22, 23, 24, 25]])
-
+print(mat[2:,1:])
 # 20
-
+print(mat[3][4])
 # array([[ 2],
 #        [ 7],
 #        [12]])
-
+print(mat[0:3,1:2])
 # array([21, 22, 23, 24, 25])
-
+print(mat[4,0:5])
 # array([[16, 17, 18, 19, 20],
 #       [21, 22, 23, 24, 25]])
-
+print(mat[3:5,0:5])
 
 
 # Get the sum of all the values in mat
 # 325
+sum = 0
+for n in mat:
+    sum += n
+
+tot = 0
+for n in sum:
+    tot += n
+
+print(tot)
+
+# AI
+print(np.sum(mat))
+
+# Get the standard deviation of the values in mat
 # 7.2111025509279782
+print(np.std(mat))
+
+# Get the sum of all the columns in mat
 # array([55, 60, 65, 70, 75])
+sum = 0
+for n in mat:
+    sum += n
+
+print(sum)
+
+# AI
+print(np.sum(mat, axis=0))
