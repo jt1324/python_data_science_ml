@@ -133,3 +133,24 @@ print(df.loc['G1'].loc[1]['B'])
 print(df.xs('G1'))
 print(df.xs(1,level='Num'))                             # Filtering all 1 from Column 'Num'
 
+
+
+
+# Missing Data
+
+d = {'A':[1,2,np.nan],'B':[5,np.nan,np.nan],'C':[1,2,3]}
+
+df = pd.DataFrame(d)
+print(df)
+
+df.dropna()                                             # delete all the rows that has at leas 1 empty cell
+df.dropna(axis=1)                                       # delete all the column that has at leas 1 empty cell
+
+df.dropna(thresh=2)                                     # keep rows with at least 2 non empty cells
+
+# df = df.fillna(value='FILL VALUE')                    # Replacing the na for something
+print(df)
+
+# df = df['A'].fillna(value=df['A'].mean())             # Replacing NA in specific columns 
+print(df)
+
