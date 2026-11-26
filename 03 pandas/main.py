@@ -154,3 +154,29 @@ print(df)
 # df = df['A'].fillna(value=df['A'].mean())             # Replacing NA in specific columns 
 print(df)
 
+
+
+
+# Groupby
+
+data = {'Company':['GOOG','GOOG','MSFT','MSFT','FB','FB'],
+        'Person':['Sam','Charlie','Amy','Vanessa','Carl','Sarah'],
+        'Sales':[200,120,340,124,243,350]}
+
+df = pd.DataFrame(data)
+print(df)
+
+byComp = df.groupby('Company')                          # Grouping by comlum 'COmpany'
+print(byComp.mean(numeric_only=True))                   # Average of values for the group
+print(byComp.sum(numeric_only=True))                    # Sum of values for the group
+print(byComp.sum().loc['FB'])                           # Filtering after group
+
+print(df.groupby('Company').sum().loc['GOOG'])          # Applying all in one line of code
+
+print(df.groupby('Company').count())                    # Counting
+print(df.groupby('Company').max())                      # Maximum - including Names
+print(df.groupby('Company').min())                      # Minimum - including names
+
+print(df.groupby('Company').describe())                 # Show details like, counmt, avg, min, max, ...
+
+print(df.groupby('Company').describe().transpose()['MSFT'])
