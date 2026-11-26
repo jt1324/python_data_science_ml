@@ -104,3 +104,32 @@ print(df)
 
 # df.set_index('States', inplace=True)                  # replaces teh index by the column
 
+
+
+# DataFrames - Part 3
+# Index levels
+
+outside = ['G1', 'G1', 'G1', 'G2', 'G2', 'G2']
+inside = [1,2,3,1,2,3]
+hier_index = list(zip(outside,inside))
+hier_index = pd.MultiIndex.from_tuples(hier_index)
+
+print(list(zip(outside,inside)))
+print(hier_index)
+
+df = pd.DataFrame(randn(6,2),hier_index,['A','B'])
+print(df)
+
+print(df.loc['G1'])
+print(df.loc['G1'].loc[1])
+
+print(df.index.names)
+df.index.names = ['Groups', 'Num']                      # adding names for indexes
+print(df)
+
+print(df.loc['G2'].loc[2]['B'])                         # FIltering a specific number from the table
+print(df.loc['G1'].loc[1]['B']) 
+
+print(df.xs('G1'))
+print(df.xs(1,level='Num'))                             # Filtering all 1 from Column 'Num'
+
