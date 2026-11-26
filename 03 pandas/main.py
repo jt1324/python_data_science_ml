@@ -255,7 +255,7 @@ print(merged2)
 merged3 = pd.merge(left1,right1, how='left', on=['key1', 'key2'])      # Left join
 print(merged3)
 
-# Joining
+# Joining - similar to merge, but is based in teh index rather than on or more columns like merge
 
 left2 = pd.DataFrame({'A': ['A0', 'A1', 'A2'],
                      'B': ['B0', 'B1', 'B2']},
@@ -273,3 +273,56 @@ print(left_t)
 
 outer_t = left2.join(right2, how='outer')
 print(outer_t)
+
+
+
+# Operations
+
+df = pd.DataFrame({'col1':[1,2,3,4],'col2':[444,555,666,444],'col3':['abc','def','ghi','xyz']})
+
+print(df.head())
+
+# Finding unique values
+
+print(df['col2'].unique())                                  # Shows the unique values
+print(len(df['col2'].unique()))                             # Shows how many unique values
+print(df['col2'].nunique())                                 # Same result as above - qty of unique values
+
+print(df['col2'].value_counts())                            # Shows the unique values and how many times they appear
+
+# Apply
+
+def times2(x):
+    return x*2
+
+print(df['col1'].apply(times2))
+
+print(df['col3'].apply(len))
+
+print(df['col2'].apply(lambda x: x*2))
+
+# Getting column and index names
+
+print(df.columns)
+print(df.index)
+
+# Sorting and ordering a data frame
+
+print(df.sort_values('col2'))                                       # Ordering data by column - Ascending
+print(df.sort_values('col2', ascending=False))                      # Ordering data by column - Descending
+print(df.sort_values(['col2', 'col1'], ascending=[False, True]))    # Ordering data by more than 1 column - Descending & Ascending
+
+# Checking nulls
+
+print(df.isnull())
+
+# Pivot tables
+
+data = {'A':['foo','foo','foo','bar','bar','bar'],
+       'B':['one','one','two','two','one','one'],
+       'C':['x','y','x','y','x','y'],
+       'D':[1,3,2,5,4,1]}
+    
+df = pd.DataFrame(data)
+
+print(df.pivot_table(values='D',index=['A', 'B'],columns=['C']))
