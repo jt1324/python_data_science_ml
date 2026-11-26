@@ -62,3 +62,45 @@ print(df.iloc[2])                                       # Same result as above
 
 print(df.loc['B','Y'])                                  # Selecting specific cell
 print(df.loc[['A','B'],['W','Y']])                      # Selecting a range of cells
+
+
+
+
+# DataFrames - Part 2
+# Conditional selection
+
+print(df > 0)
+
+booldf = df > 0
+print(df[booldf])
+
+print(df['W']>0)
+print(df[df['W']>0])                                    # Only returns positive numbers or True numbers for that column 'W'
+
+print(df[df['Z']<0])
+
+resultdf = df[df['W']>0]['X']                           # selecting only column 'X' from the reult
+print(resultdf)
+
+resultdf = df[df['W']>0][['X', 'X']]
+print(resultdf)
+
+# Multi conditional selection
+
+print(df[(df['W']>0) & (df['Y']>1)])                    # and = &
+
+print(df[(df['W']>0) | (df['Y']>1)])                    # or = |
+
+# Index
+
+# df.reset_index(inplace=True)
+print(df)
+
+newind = 'CA NY WY OR CO'.split()
+print(newind)
+
+df['States'] = newind                                   # Adding a column
+print(df)
+
+# df.set_index('States', inplace=True)                  # replaces teh index by the column
+
